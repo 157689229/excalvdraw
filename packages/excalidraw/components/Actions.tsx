@@ -50,6 +50,7 @@ import { getFormValue } from "../actions/actionProperties";
 import { useTextEditorFocus } from "../hooks/useTextEditorFocus";
 
 import { actionToggleViewMode } from "../actions/actionToggleViewMode";
+import { getShortcutFromShortcutName } from "../actions/shortcuts";
 
 import { getToolbarTools } from "./shapes";
 
@@ -82,6 +83,7 @@ import {
   DotsHorizontalIcon,
   SelectionIcon,
   pencilIcon,
+  searchIcon,
 } from "./icons";
 
 import { Island } from "./Island";
@@ -207,39 +209,39 @@ export const SelectedShapeActions = ({
 
       {(hasStrokeStyle(appState.activeTool.type) ||
         targetElements.some((element) => hasStrokeStyle(element.type))) && (
-        <>
-          {renderAction("changeStrokeStyle")}
-          {renderAction("changeSloppiness")}
-        </>
-      )}
+          <>
+            {renderAction("changeStrokeStyle")}
+            {renderAction("changeSloppiness")}
+          </>
+        )}
 
       {(canChangeRoundness(appState.activeTool.type) ||
         targetElements.some((element) => canChangeRoundness(element.type))) && (
-        <>{renderAction("changeRoundness")}</>
-      )}
+          <>{renderAction("changeRoundness")}</>
+        )}
 
       {(toolIsArrow(appState.activeTool.type) ||
         targetElements.some((element) => toolIsArrow(element.type))) && (
-        <>{renderAction("changeArrowType")}</>
-      )}
+          <>{renderAction("changeArrowType")}</>
+        )}
 
       {(appState.activeTool.type === "text" ||
         targetElements.some(isTextElement)) && (
-        <>
-          {renderAction("changeFontFamily")}
-          {renderAction("changeFontSize")}
-          {(appState.activeTool.type === "text" ||
-            suppportsHorizontalAlign(targetElements, elementsMap)) &&
-            renderAction("changeTextAlign")}
-        </>
-      )}
+          <>
+            {renderAction("changeFontFamily")}
+            {renderAction("changeFontSize")}
+            {(appState.activeTool.type === "text" ||
+              suppportsHorizontalAlign(targetElements, elementsMap)) &&
+              renderAction("changeTextAlign")}
+          </>
+        )}
 
       {shouldAllowVerticalAlign(targetElements, elementsMap) &&
         renderAction("changeVerticalAlign")}
       {(canHaveArrowheads(appState.activeTool.type) ||
         targetElements.some((element) => canHaveArrowheads(element.type))) && (
-        <>{renderAction("changeArrowhead")}</>
-      )}
+          <>{renderAction("changeArrowhead")}</>
+        )}
 
       {renderAction("changeOpacity")}
 
@@ -385,7 +387,7 @@ const CombinedShapeProperties = ({
             className={PROPERTIES_CLASSES}
             container={container}
             style={{ maxWidth: "13rem" }}
-            onClose={() => {}}
+            onClose={() => { }}
           >
             <div className="selected-shape-actions">
               {showFillIcons && renderAction("changeFillStyle")}
@@ -398,11 +400,11 @@ const CombinedShapeProperties = ({
                 targetElements.some((element) =>
                   hasStrokeStyle(element.type),
                 )) && (
-                <>
-                  {renderAction("changeStrokeStyle")}
-                  {renderAction("changeSloppiness")}
-                </>
-              )}
+                  <>
+                    {renderAction("changeStrokeStyle")}
+                    {renderAction("changeSloppiness")}
+                  </>
+                )}
               {(canChangeRoundness(appState.activeTool.type) ||
                 targetElements.some((element) =>
                   canChangeRoundness(element.type),
@@ -479,8 +481,8 @@ const CombinedArrowProperties = ({
                     return element.elbowed
                       ? "elbow"
                       : element.roundness
-                      ? "round"
-                      : "sharp";
+                        ? "round"
+                        : "sharp";
                   }
                   return null;
                 },
@@ -504,7 +506,7 @@ const CombinedArrowProperties = ({
             container={container}
             className="properties-content"
             style={{ maxWidth: "13rem" }}
-            onClose={() => {}}
+            onClose={() => { }}
           >
             {renderAction("changeArrowProperties")}
           </PropertiesPopover>
@@ -688,7 +690,7 @@ const CombinedExtraActions = ({
               justifyContent: "center",
               alignItems: "center",
             }}
-            onClose={() => {}}
+            onClose={() => { }}
           >
             <div className="selected-shape-actions">
               <fieldset>
@@ -852,20 +854,20 @@ export const CompactShapeActions = ({
       {/* Text Properties */}
       {(appState.activeTool.type === "text" ||
         targetElements.some(isTextElement)) && (
-        <>
-          <div className="compact-action-item">
-            {renderAction("changeFontFamily")}
-          </div>
-          <CombinedTextProperties
-            appState={appState}
-            renderAction={renderAction}
-            setAppState={setAppState}
-            targetElements={targetElements}
-            container={container}
-            elementsMap={elementsMap}
-          />
-        </>
-      )}
+          <>
+            <div className="compact-action-item">
+              {renderAction("changeFontFamily")}
+            </div>
+            <CombinedTextProperties
+              appState={appState}
+              renderAction={renderAction}
+              setAppState={setAppState}
+              targetElements={targetElements}
+              container={container}
+              elementsMap={elementsMap}
+            />
+          </>
+        )}
 
       {/* Dedicated Copy Button */}
       {!isEditingTextOrNewElement && targetElements.length > 0 && (
@@ -987,20 +989,20 @@ export const MobileShapeActions = ({
         {/* Text Properties */}
         {(appState.activeTool.type === "text" ||
           targetElements.some(isTextElement)) && (
-          <>
-            <div className="compact-action-item">
-              {renderAction("changeFontFamily")}
-            </div>
-            <CombinedTextProperties
-              appState={appState}
-              renderAction={renderAction}
-              setAppState={setAppState}
-              targetElements={targetElements}
-              container={container}
-              elementsMap={elementsMap}
-            />
-          </>
-        )}
+            <>
+              <div className="compact-action-item">
+                {renderAction("changeFontFamily")}
+              </div>
+              <CombinedTextProperties
+                appState={appState}
+                renderAction={renderAction}
+                setAppState={setAppState}
+                targetElements={targetElements}
+                container={container}
+                elementsMap={elementsMap}
+              />
+            </>
+          )}
 
         {/* Combined Other Actions */}
         <CombinedExtraActions
@@ -1085,10 +1087,10 @@ export const ShapesSwitcher = ({
           if (
             toolbar === false ||
             UIOptions.tools?.[
-              value as Extract<
-                typeof value,
-                keyof AppProps["UIOptions"]["tools"]
-              >
+            value as Extract<
+              typeof value,
+              keyof AppProps["UIOptions"]["tools"]
+            >
             ] === false
           ) {
             return null;
@@ -1180,6 +1182,23 @@ export const ShapesSwitcher = ({
           );
         },
       )}
+      <ToolButton
+        className={clsx("Shape", { fillable: false })}
+        key="search"
+        type="button"
+        icon={searchIcon}
+        title={`${capitalizeString(t("search.title"))} — ${getShortcutFromShortcutName(
+          "searchMenu",
+        )}`}
+        aria-label={capitalizeString(t("search.title"))}
+        aria-keyshortcuts={getShortcutFromShortcutName("searchMenu")}
+        data-testid={`toolbar-search`}
+        onClick={(event) => {
+          event.preventDefault();
+          // Dispatch a custom event to App.tsx to toggle search state
+          window.dispatchEvent(new CustomEvent("toggle-search-menu"));
+        }}
+      />
       <div className="App-toolbar__divider" />
 
       <DropdownMenu open={isExtraToolsMenuOpen}>
@@ -1203,12 +1222,12 @@ export const ShapesSwitcher = ({
           {frameToolSelected
             ? frameToolIcon
             : embeddableToolSelected
-            ? EmbedIcon
-            : laserToolSelected && !app.props.isCollaborating
-            ? laserPointerToolIcon
-            : lassoToolSelected
-            ? LassoIcon
-            : extraToolsIcon}
+              ? EmbedIcon
+              : laserToolSelected && !app.props.isCollaborating
+                ? laserPointerToolIcon
+                : lassoToolSelected
+                  ? LassoIcon
+                  : extraToolsIcon}
         </DropdownMenu.Trigger>
         <DropdownMenu.Content
           onClickOutside={() => setIsExtraToolsMenuOpen(false)}

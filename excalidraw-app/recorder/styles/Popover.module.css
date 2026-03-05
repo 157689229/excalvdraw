@@ -1,0 +1,188 @@
+.popover {
+  position: fixed;
+  z-index: var(--z-popover);
+  width: 280px;
+  max-height: 80vh;
+  overflow-y: auto;
+  transform: translate(-50%, -100%);
+  padding: 16px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  backdrop-filter: var(--blur);
+  box-shadow: var(--shadow);
+  color: var(--text-1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: pop 180ms ease-out;
+}
+
+.arrow {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 14px;
+  height: 14px;
+  background: var(--surface-solid);
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.rowBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rowGap8 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--text-1);
+}
+
+.select {
+  width: 100%;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-1);
+  padding: 0 10px;
+}
+
+.segment {
+  display: flex;
+  gap: 8px;
+}
+
+.segmentBtn {
+  flex: 1;
+  height: 34px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-1);
+  cursor: pointer;
+}
+
+.segmentBtn[data-active="true"] {
+  background: var(--active);
+  color: var(--brand);
+}
+
+.range {
+  width: 100%;
+}
+
+.checkboxRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.preview video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.toggle {
+  width: 36px;
+  height: 20px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  padding: 2px;
+  display: inline-flex;
+  align-items: center;
+  transition: var(--ease);
+}
+
+.toggle[data-on="true"] {
+  background: var(--brand);
+}
+
+.toggleThumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #fff;
+  transform: translateX(0);
+  transition: transform var(--ease);
+}
+
+.toggle[data-on="true"] .toggleThumb {
+  transform: translateX(16px);
+}
+
+.waveCanvas {
+  width: 100%;
+  height: 40px;
+  border-radius: var(--r-sm);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.volumeRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.volumeTrack {
+  flex: 1;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #10b981 0%, #f59e0b 65%, #ef4444 100%);
+  overflow: hidden;
+}
+
+.volumeFill {
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.dbLabel {
+  font-size: 12px;
+  min-width: 80px;
+  text-align: right;
+}
+
+.smallButton {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-1);
+  cursor: pointer;
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-100% + 8px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
+}

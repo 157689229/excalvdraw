@@ -1,0 +1,85 @@
+.overlay {
+  position: fixed;
+  z-index: var(--z-pip);
+  border: 3px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  background: rgba(17, 17, 17, 0.95);
+  animation: pop 260ms var(--spring);
+}
+
+.overlay video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dragArea {
+  position: absolute;
+  inset: 0;
+  cursor: move;
+  z-index: 1;
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 22px;
+  height: 22px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+  transition: var(--ease);
+}
+
+.overlay:hover .close {
+  opacity: 1;
+}
+
+.resizeHandle {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  border-radius: 6px;
+  cursor: nwse-resize;
+  z-index: 2;
+  opacity: 0;
+  transition: var(--ease);
+}
+
+.overlay:hover .resizeHandle {
+  opacity: 1;
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12px;
+  background: rgba(17, 24, 39, 0.9);
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

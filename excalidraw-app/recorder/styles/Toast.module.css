@@ -1,0 +1,87 @@
+.toast {
+  position: fixed;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  z-index: var(--z-toast);
+  min-width: 280px;
+  max-width: 80vw;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  backdrop-filter: var(--blur);
+  color: var(--text-1);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  animation: toast-in 180ms ease-out;
+}
+
+.icon {
+  width: 18px;
+  text-align: center;
+}
+
+.toast[data-type="warning"] {
+  border-color: rgba(245, 158, 11, 0.5);
+}
+
+.convertMask {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-toast) - 1);
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.convertCard {
+  width: min(380px, 84vw);
+  padding: 20px;
+  border-radius: var(--r-md);
+  border: 1px solid var(--border);
+  background: var(--surface-solid);
+  color: var(--text-1);
+  box-shadow: var(--shadow);
+}
+
+.convertTitle {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.progressTrack {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #10b981);
+}
+
+.progressText {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--text-2);
+  text-align: right;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}

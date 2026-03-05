@@ -1,0 +1,119 @@
+.panel {
+  position: fixed;
+  z-index: var(--z-panel);
+  display: flex;
+  align-items: center;
+  height: 56px;
+  width: fit-content;
+  max-width: calc(100vw - 24px);
+  border-radius: var(--r-lg);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: var(--blur);
+  box-shadow: var(--shadow);
+  transform: translateY(20px);
+  transition: transform var(--spring), opacity var(--spring);
+  user-select: none;
+}
+
+.panel[data-visible="true"] {
+  transform: translateY(0);
+}
+
+.dragHandle {
+  width: 32px;
+  height: 100%;
+  border: none;
+  border-left: 1px solid var(--border);
+  color: var(--text-3);
+  background: transparent;
+  cursor: grab;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.toolsWrap {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  gap: 8px;
+}
+
+.separator {
+  width: 1px;
+  height: 34px;
+  background: var(--border);
+}
+
+.toolItem {
+  min-width: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.toolButton {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: var(--r-sm);
+  background: transparent;
+  color: var(--text-1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--ease);
+}
+
+.toolButton:hover:not(:disabled) {
+  background: var(--hover);
+}
+
+.toolButton[data-active="true"] {
+  background: var(--active);
+  color: var(--brand);
+}
+
+.toolButton[data-danger="true"] {
+  color: var(--danger);
+}
+
+.toolButton:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.toolButton svg {
+  width: 22px;
+  height: 22px;
+}
+
+.label {
+  font-size: 11px;
+  line-height: 1;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.micIconWithBars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.micBars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1px;
+  height: 12px;
+}
+
+.micBars span {
+  width: 2px;
+  border-radius: 999px;
+  transition: height 80ms linear;
+}

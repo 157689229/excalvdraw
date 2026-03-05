@@ -1,0 +1,53 @@
+:root {
+  --brand: #3b82f6;
+  --danger: #ef4444;
+  --danger-hover: #dc2626;
+  --success: #10b981;
+  --warning: #f59e0b;
+
+  --surface: rgba(30, 30, 30, 0.92);
+  --surface-solid: rgba(30, 30, 30, 0.95);
+  --border: rgba(255, 255, 255, 0.08);
+  --text-1: rgba(255, 255, 255, 0.9);
+  --text-2: rgba(255, 255, 255, 0.5);
+  --text-3: rgba(255, 255, 255, 0.3);
+  --hover: rgba(255, 255, 255, 0.1);
+  --active: rgba(59, 130, 246, 0.3);
+
+  --blur: blur(20px);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --r-sm: 8px;
+  --r-md: 12px;
+  --r-lg: 16px;
+
+  --ease: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --z-overlay: 100;
+  --z-mask: 200;
+  --z-pip: 300;
+  --z-teleprompter: 400;
+  --z-panel: 9999;
+  --z-popover: 10000;
+  --z-toast: 10001;
+}
+
+.excalvcord-stop-propagation {
+  pointer-events: auto;
+}
+
+.excalidraw .default-sidebar-trigger {
+  display: none !important;
+}
+
+.excalidraw .default-sidebar .sidebar-triggers .sidebar-tab-trigger:nth-child(2),
+.excalidraw .default-sidebar .sidebar-triggers .sidebar-tab-trigger:nth-child(n + 3) {
+  display: none !important;
+}
+
+.excalidraw .layer-ui__wrapper__top-right .plus-banner,
+.excalidraw
+  .layer-ui__wrapper__top-right
+  [data-testid="live-collaboration-trigger"] {
+  display: none !important;
+}

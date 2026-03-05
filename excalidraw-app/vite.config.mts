@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   return {
     server: {
       port: Number(envVars.VITE_APP_PORT || 3000),
+      host: "127.0.0.1",
       // open the browser
       open: true,
     },
@@ -203,10 +204,10 @@ export default defineConfig(({ mode }) => {
           maximumFileSizeToCacheInBytes: 2.3 * 1024 ** 2, // 2.3MB
         },
         manifest: {
-          short_name: "Excalidraw",
-          name: "Excalidraw",
+          short_name: "Excalvdraw",
+          name: "Excalvdraw",
           description:
-            "Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+            "Excalvdraw is a whiteboard & screen recording tool that lets you easily sketch diagrams and record videos.",
           icons: [
             {
               src: "android-chrome-192x192.png",
