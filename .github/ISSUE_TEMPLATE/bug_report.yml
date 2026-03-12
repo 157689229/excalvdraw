@@ -1,0 +1,94 @@
+name: Bug report
+description: Report a reproducible bug in Excalvdraw
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Reproduction quality matters. Please be precise.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken?
+      placeholder: A short description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps.
+      placeholder: |
+        1. Open ...
+        2. Click ...
+        3. Start recording ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      placeholder: What happened instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Whiteboard
+        - Recording region
+        - Camera
+        - Microphone
+        - System audio
+        - Teleprompter
+        - Export / MP4
+        - Deployment / startup
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      placeholder: Chrome 134
+    validations:
+      required: true
+
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: macOS Sonoma / Windows 11 / Ubuntu 24.04
+    validations:
+      required: true
+
+  - type: textarea
+    id: media
+    attributes:
+      label: Recording context
+      description: If relevant, note whether camera, mic, system audio, or screen capture were enabled.
+      placeholder: Camera on, mic on, system audio off, board recording mode
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context
+      placeholder: Logs, screenshots, workarounds, or regression notes

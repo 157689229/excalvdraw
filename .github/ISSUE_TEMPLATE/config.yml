@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Live application
+    url: https://excalvdraw.vercel.app/
+    about: Reproduce the issue on the deployed app before filing when possible.
+  - name: Security policy
+    url: https://github.com/157689229/excalvdraw/blob/master/SECURITY.md
+    about: Please do not disclose vulnerabilities in public issues.

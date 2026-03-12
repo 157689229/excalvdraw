@@ -1,124 +1,139 @@
-<a href="https://excalidraw.com/" target="_blank" rel="noopener">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" alt="Excalidraw" srcset="https://excalidraw.nyc3.cdn.digitaloceanspaces.com/github/excalidraw_github_cover_2_dark.png" />
-    <img alt="Excalidraw" src="https://excalidraw.nyc3.cdn.digitaloceanspaces.com/github/excalidraw_github_cover_2.png" />
-  </picture>
-</a>
+# Excalvdraw
 
-<h4 align="center">
-  <a href="https://excalidraw.com">Excalidraw Editor</a> |
-  <a href="https://plus.excalidraw.com/blog">Blog</a> |
-  <a href="https://docs.excalidraw.com">Documentation</a> |
-  <a href="https://plus.excalidraw.com">Excalidraw+</a>
-</h4>
+Excalvdraw is a public, MIT-licensed whiteboard fork built for creator recording workflows.
 
-<div align="center">
-  <h2>
-    An open source virtual hand-drawn style whiteboard. </br>
-    Collaborative and end-to-end encrypted. </br>
-  <br />
-  </h2>
-</div>
+It keeps the core Excalidraw drawing experience intact and adds a browser-native recording layer for people who teach, sketch, and narrate directly from the canvas.
 
-<br />
-<p align="center">
-  <a href="https://github.com/excalidraw/excalidraw/blob/master/LICENSE">
-    <img alt="Excalidraw is released under the MIT license." src="https://img.shields.io/badge/license-MIT-blue.svg"  /></a>
-  <a href="https://www.npmjs.com/package/@excalidraw/excalidraw">
-    <img alt="npm downloads/month" src="https://img.shields.io/npm/dm/@excalidraw/excalidraw"  /></a>
-  <a href="https://docs.excalidraw.com/docs/introduction/contributing">
-    <img alt="PRs welcome!" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat"  /></a>
-  <a href="https://discord.gg/UexuTaE">
-    <img alt="Chat on Discord" src="https://img.shields.io/discord/723672430744174682?color=738ad6&label=Chat%20on%20Discord&logo=discord&logoColor=ffffff&widge=false"/></a>
-  <a href="https://deepwiki.com/excalidraw/excalidraw">
-    <img alt="Ask DeepWiki" src="https://deepwiki.com/badge.svg" /></a>
-  <a href="https://twitter.com/excalidraw">
-    <img alt="Follow Excalidraw on Twitter" src="https://img.shields.io/twitter/follow/excalidraw.svg?label=follow+@excalidraw&style=social&logo=twitter"/></a>
-</p>
+- Live app: [https://excalvdraw.vercel.app/](https://excalvdraw.vercel.app/)
+- Repository: [https://github.com/157689229/excalvdraw](https://github.com/157689229/excalvdraw)
+- Primary maintainer: [@157689229](https://github.com/157689229)
+- Upstream project: [Excalidraw](https://github.com/excalidraw/excalidraw)
+- License: [MIT](./LICENSE)
 
-<div align="center">
-  <figure>
-    <a href="https://excalidraw.com" target="_blank" rel="noopener">
-      <img src="https://excalidraw.nyc3.cdn.digitaloceanspaces.com/github%2Fproduct_showcase.png" alt="Product showcase" />
-    </a>
-    <figcaption>
-      <p align="center">
-        Create beautiful hand-drawn like diagrams, wireframes, or whatever you like.
-      </p>
-    </figcaption>
-  </figure>
-</div>
+## What this project is
 
-## Features
+Excalvdraw is maintained as a creator-focused distribution of Excalidraw for browser-based teaching and recording.
 
-The Excalidraw editor (npm package) supports:
+The goal is simple:
 
-- 💯&nbsp;Free & open-source.
-- 🎨&nbsp;Infinite, canvas-based whiteboard.
-- ✍️&nbsp;Hand-drawn like style.
-- 🌓&nbsp;Dark mode.
-- 🏗️&nbsp;Customizable.
-- 📷&nbsp;Image support.
-- 😀&nbsp;Shape libraries support.
-- 🌐&nbsp;Localization (i18n) support.
-- 🖼️&nbsp;Export to PNG, SVG & clipboard.
-- 💾&nbsp;Open format - export drawings as an `.excalidraw` json file.
-- ⚒️&nbsp;Wide range of tools - rectangle, circle, diamond, arrow, line, free-draw, eraser...
-- ➡️&nbsp;Arrow-binding & labeled arrows.
-- 🔙&nbsp;Undo / Redo.
-- 🔍&nbsp;Zoom and panning support.
+1. Open the browser
+2. Draw on a whiteboard
+3. Record the board, face, and voice
+4. Export a ready-to-edit MP4
 
-## Excalidraw.com
+This repository is intended for real-world use by non-technical creators, especially educators and video makers who need a whiteboard plus recording workflow without switching between multiple tools.
 
-The app hosted at [excalidraw.com](https://excalidraw.com) is a minimal showcase of what you can build with Excalidraw. Its [source code](https://github.com/excalidraw/excalidraw/tree/master/excalidraw-app) is part of this repository as well, and the app features:
+## Why this fork exists
 
-- 📡&nbsp;PWA support (works offline).
-- 🤼&nbsp;Real-time collaboration.
-- 🔒&nbsp;End-to-end encryption.
-- 💾&nbsp;Local-first support (autosaves to the browser).
-- 🔗&nbsp;Shareable links (export to a readonly link you can share with others).
+Existing tools usually split the workflow:
 
-We'll be adding these features as drop-in plugins for the npm package in the future.
+- Excalidraw is an excellent whiteboard, but not a built-in recording tool
+- Screen recording tools can capture the screen, but they do not provide a native whiteboard authoring experience
+- OBS is powerful, but too complex for many first-time creators
 
-## Quick start
+Excalvdraw closes that gap by combining a familiar whiteboard with an in-browser recording workflow designed for fast, repeatable use.
 
-**Note:** following instructions are for installing the Excalidraw [npm package](https://www.npmjs.com/package/@excalidraw/excalidraw) when integrating Excalidraw into your own app. To run the repository locally for development, please refer to our [Development Guide](https://docs.excalidraw.com/docs/introduction/development).
+## What Excalvdraw adds
 
-Use `npm` or `yarn` to install the package.
+On top of the upstream whiteboard, this project adds:
+
+- Screen/board recording from inside the app
+- Region selection for recording
+- Camera overlay with drag and resize controls
+- Microphone and system audio capture
+- MP4 export workflow with ffmpeg fallback when needed
+- Teleprompter support for speaking workflows
+- Chinese-first product copy for non-technical users
+
+## What stays compatible
+
+This project aims to preserve the core Excalidraw whiteboard behavior:
+
+- drawing tools
+- shapes
+- text
+- zooming and panning
+- canvas background controls
+- export/import behaviors where not directly related to the recording layer
+
+When changes are made here, a key maintenance rule is to avoid breaking the original whiteboard interaction model while improving the recording workflow.
+
+## Maintainer scope
+
+This repository is maintained as an active public fork/distribution.
+
+Primary maintenance work includes:
+
+- triaging bugs
+- keeping the whiteboard behavior stable while integrating recorder features
+- validating browser media API compatibility
+- reviewing regressions in camera, microphone, and export flows
+- maintaining deployment readiness for the live app
+- documenting usage and contribution expectations
+
+## Current focus
+
+The current maintenance focus is on:
+
+- recording reliability
+- preserving upstream whiteboard UX
+- creator-friendly controls
+- Chinese localization and creator-facing copy
+- regression prevention between recorder UI and canvas interaction
+
+## Live deployment
+
+Production deployment:
+
+- [https://excalvdraw.vercel.app/](https://excalvdraw.vercel.app/)
+
+If you are evaluating the project for maintenance quality or open source support, the live deployment is the fastest way to understand the intended workflow.
+
+## Local development
+
+Requirements:
+
+- Node.js 18+
+- Yarn 1.x
+
+Start locally:
 
 ```bash
-npm install react react-dom @excalidraw/excalidraw
-# or
-yarn add react react-dom @excalidraw/excalidraw
+yarn install
+yarn start
 ```
 
-Check out our [documentation](https://docs.excalidraw.com/docs/@excalidraw/excalidraw/installation) for more details!
+Run the main checks:
+
+```bash
+yarn test:typecheck
+yarn test:code
+```
 
 ## Contributing
 
-- Missing something or found a bug? [Report here](https://github.com/excalidraw/excalidraw/issues).
-- Want to contribute? Check out our [contribution guide](https://docs.excalidraw.com/docs/introduction/contributing) or let us know on [Discord](https://discord.gg/UexuTaE).
-- Want to help with translations? See the [translation guide](https://docs.excalidraw.com/docs/introduction/contributing#translating).
+Contributions are welcome, especially for:
 
-## Integrations
+- recording reliability
+- browser compatibility
+- regression fixes
+- UX improvements that do not break core whiteboard behavior
+- docs and reproduction cases
 
-- [VScode extension](https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor)
-- [npm package](https://www.npmjs.com/package/@excalidraw/excalidraw)
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a pull request.
 
-## Who's integrating Excalidraw
+## Security
 
-[Google Cloud](https://googlecloudcheatsheet.withgoogle.com/architecture) • [Meta](https://meta.com/) • [CodeSandbox](https://codesandbox.io/) • [Obsidian Excalidraw](https://github.com/zsviczian/obsidian-excalidraw-plugin) • [Replit](https://replit.com/) • [Slite](https://slite.com/) • [Notion](https://notion.so/) • [HackerRank](https://www.hackerrank.com/) • and many others
+If you believe you found a security issue, please read [SECURITY.md](./SECURITY.md) before reporting it publicly.
 
-## Sponsors & support
+## Relationship to Excalidraw
 
-If you like the project, you can become a sponsor at [Open Collective](https://opencollective.com/excalidraw) or use [Excalidraw+](https://plus.excalidraw.com/).
+Excalvdraw is built on top of the open-source Excalidraw codebase and would not exist without the upstream project and community.
 
-## Thank you for supporting Excalidraw
+This repository is not the upstream Excalidraw repository. It is a separate public fork/distribution with its own product direction, maintenance scope, and deployment.
 
-[<img src="https://opencollective.com/excalidraw/tiers/sponsors/0/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/0/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/1/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/1/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/2/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/2/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/3/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/3/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/4/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/4/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/5/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/5/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/6/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/6/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/7/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/7/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/8/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/8/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/9/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/9/website) [<img src="https://opencollective.com/excalidraw/tiers/sponsors/10/avatar.svg?avatarHeight=120"/>](https://opencollective.com/excalidraw/tiers/sponsors/10/website)
+## License and attribution
 
-<a href="https://opencollective.com/excalidraw#category-CONTRIBUTE" target="_blank"><img src="https://opencollective.com/excalidraw/tiers/backers.svg?avatarHeight=32"/></a>
+This repository is released under the [MIT License](./LICENSE).
 
-Last but not least, we're thankful to these companies for offering their services for free:
-
-[![Vercel](./.github/assets/vercel.svg)](https://vercel.com) [![Sentry](./.github/assets/sentry.svg)](https://sentry.io) [![Crowdin](./.github/assets/crowdin.svg)](https://crowdin.com)
+The project includes and extends code from [Excalidraw](https://github.com/excalidraw/excalidraw), which is also MIT-licensed.

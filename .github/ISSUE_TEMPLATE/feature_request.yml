@@ -1,0 +1,56 @@
+name: Feature request
+description: Suggest an improvement to Excalvdraw
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the user problem first. Requests tied to a real workflow are easier to evaluate.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: What user workflow is blocked or inefficient?
+      placeholder: A creator cannot...
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      placeholder: Describe the feature you want.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Whiteboard
+        - Recording region
+        - Camera
+        - Microphone
+        - System audio
+        - Teleprompter
+        - Export / MP4
+        - Docs
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints or tradeoffs
+      description: Mention browser limits, UX concerns, or upstream compatibility concerns if known.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      placeholder: What are you doing today instead?
