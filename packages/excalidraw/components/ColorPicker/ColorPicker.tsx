@@ -52,6 +52,7 @@ interface ColorPickerProps {
   palette?: ColorPaletteCustom | null;
   topPicks?: ColorTuple;
   updateData: (formData?: any) => void;
+  forceFullPicker?: boolean;
 }
 
 const ColorPickerPopupContent = ({
@@ -64,6 +65,7 @@ const ColorPickerPopupContent = ({
   updateData,
   getOpenPopup,
   appState,
+  forceFullPicker = false,
 }: Pick<
   ColorPickerProps,
   | "type"
@@ -74,13 +76,14 @@ const ColorPickerPopupContent = ({
   | "palette"
   | "updateData"
   | "appState"
+  | "forceFullPicker"
 > & {
   getOpenPopup: () => AppState["openPopup"];
 }) => {
   const { container } = useExcalidrawContainer();
   const stylesPanelMode = useStylesPanelMode();
-  const isCompactMode = stylesPanelMode !== "full";
-  const isMobileMode = stylesPanelMode === "mobile";
+  const isCompactMode = !forceFullPicker && stylesPanelMode !== "full";
+  const isMobileMode = !forceFullPicker && stylesPanelMode === "mobile";
   const [, setActiveColorPickerSection] = useAtom(activeColorPickerSectionAtom);
 
   const [eyeDropperState, setEyeDropperState] = useAtom(activeEyeDropperAtom);
@@ -216,6 +219,7 @@ const ColorPickerTrigger = ({
   mode = "background",
   onToggle,
   editingTextElement,
+  forceFullPicker = false,
 }: {
   color: string | null;
   label: string;
@@ -223,10 +227,11 @@ const ColorPickerTrigger = ({
   mode?: "background" | "stroke";
   onToggle: () => void;
   editingTextElement?: boolean;
+  forceFullPicker?: boolean;
 }) => {
   const stylesPanelMode = useStylesPanelMode();
-  const isCompactMode = stylesPanelMode !== "full";
-  const isMobileMode = stylesPanelMode === "mobile";
+  const isCompactMode = !forceFullPicker && stylesPanelMode !== "full";
+  const isMobileMode = !forceFullPicker && stylesPanelMode === "mobile";
   const handleClick = (e: React.MouseEvent) => {
     // use pointerdown so we run before outside-close logic
     e.preventDefault();
@@ -289,13 +294,14 @@ export const ColorPicker = ({
   topPicks,
   updateData,
   appState,
+  forceFullPicker = false,
 }: ColorPickerProps) => {
   const openRef = useRef(appState.openPopup);
   useEffect(() => {
     openRef.current = appState.openPopup;
   }, [appState.openPopup]);
   const stylesPanelMode = useStylesPanelMode();
-  const isCompactMode = stylesPanelMode !== "full";
+  const isCompactMode = !forceFullPicker && stylesPanelMode !== "full";
 
   return (
     <div>
@@ -330,6 +336,7 @@ export const ColorPicker = ({
             type={type}
             mode={type === "elementStroke" ? "stroke" : "background"}
             editingTextElement={!!appState.editingTextElement}
+            forceFullPicker={forceFullPicker}
             onToggle={() => {
               // atomic switch: if another popup is open, close it first, then open this one next tick
               if (appState.openPopup === type) {
@@ -355,6 +362,7 @@ export const ColorPicker = ({
               updateData={updateData}
               getOpenPopup={() => openRef.current}
               appState={appState}
+              forceFullPicker={forceFullPicker}
             />
           )}
         </Popover.Root>

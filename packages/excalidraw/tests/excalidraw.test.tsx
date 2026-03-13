@@ -225,6 +225,24 @@ describe("<Excalidraw/>", () => {
         expect(queryByTestId(container, "canvas-background-picker")).toBeNull();
       });
 
+      it("should keep canvas background top picks visible in desktop compact mode", async () => {
+        window.localStorage.setItem("excalidraw.desktopUIMode", "compact");
+
+        try {
+          const { container } = await render(<Excalidraw />);
+          toggleMenu(container);
+
+          expect(
+            queryByTestId(container, "canvas-background-label"),
+          ).not.toBeNull();
+          expect(
+            queryByTestId(container, "color-top-pick-#f8f9fa"),
+          ).not.toBeNull();
+        } finally {
+          window.localStorage.removeItem("excalidraw.desktopUIMode");
+        }
+      });
+
       it("should hide the theme toggle when theme is false", async () => {
         const { container } = await render(
           <Excalidraw UIOptions={{ canvasActions: { toggleTheme: false } }} />,

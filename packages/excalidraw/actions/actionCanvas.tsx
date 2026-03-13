@@ -79,6 +79,7 @@ export const actionChangeViewBackgroundColor = register<Partial<AppState>>({
         type="canvasBackground"
         color={appState.viewBackgroundColor}
         onChange={(color) => updateData({ viewBackgroundColor: color })}
+        forceFullPicker={true}
         data-testid="canvas-background-picker"
         elements={elements}
         appState={appState}
